@@ -24,7 +24,11 @@ var Riot = (function () {
             }, {});
             Object.defineProperties(this, map);
             this.opts = opts;
-            this.on("mount", this.onMount || null);
+            if (typeof this.init !== 'function') {
+                throw new Error("A Riot Component should have a init method");
+            }
+            this.init.bind(this)();
+            this.on("mount", this.onMount.bind(this));
         });
     };
     Riot.mount = function (tag, args) {
