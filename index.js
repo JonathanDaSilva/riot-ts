@@ -28,7 +28,9 @@ var Riot = (function () {
                 throw new Error("A Riot Component should have a init method");
             }
             this.init.bind(this)();
-            this.on("mount", this.onMount.bind(this));
+            if (typeof this.onMount === 'function') {
+                this.on("mount", this.onMount.bind(this));
+            }
         });
     };
     Riot.mount = function (tag, args) {

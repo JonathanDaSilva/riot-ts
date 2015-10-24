@@ -36,7 +36,9 @@ export class Riot {
             }
 
             this.init.bind(this)()
-            this.on("mount", this.onMount.bind(this))
+            if(typeof this.onMount === 'function') {
+                this.on("mount", this.onMount.bind(this))
+            }
         })
     }
 
