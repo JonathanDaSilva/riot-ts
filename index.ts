@@ -27,9 +27,16 @@ export class Riot {
                 descriptors[key] = Object.getOwnPropertyDescriptor(that.prototype, key)
                 return descriptors
             },{})
-            Object.defineProperties(this, <PropertyDescriptorMap>map);
+            Object.defineProperties(this, <PropertyDescriptorMap>map)
             this.opts = opts
-            this.on("mount", this.onMount || null);
+
+
+            if(typeof this.init !== 'function') {
+                throw new Error("A Riot Component should have a init method")
+            }
+
+            this.init.bind(this)()
+            this.on("mount", this.onMount.bind(this))
         })
     }
 
