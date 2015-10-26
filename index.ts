@@ -39,6 +39,18 @@ export class Riot {
             if(typeof this.onMount === 'function') {
                 this.on("mount", this.onMount.bind(this))
             }
+            if(typeof this.onUpdate === 'function') {
+                this.on("update", this.onUpdate.bind(this))
+            }
+            if(typeof this.onUpdated === 'function') {
+                this.on("updated", this.onUpdated.bind(this))
+            }
+            if(typeof this.onUnmount === 'function') {
+                this.on("unmount", this.onUnmount.bind(this))
+            }
+            if(typeof this.onAny === 'function') {
+                this.on("mount unmount update", this.onAny.bind(this))
+            }
         })
     }
 
