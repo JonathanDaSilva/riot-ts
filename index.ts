@@ -1,3 +1,5 @@
+import * as riot from "riot"
+
 export function template(template) {
     return function(target) {
         target.__template = template
