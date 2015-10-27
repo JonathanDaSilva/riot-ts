@@ -1,3 +1,4 @@
+var riot = require("riot");
 function template(template) {
     return function (target) {
         target.__template = template;
