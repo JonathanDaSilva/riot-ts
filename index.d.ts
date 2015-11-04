@@ -13,4 +13,5 @@ export declare class Riot {
     public static mount(tagName: string, args: Object);
     public on(eventName: string, cb: Function);
     public update();
+    public unmount();
 }
