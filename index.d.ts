@@ -10,7 +10,7 @@ export declare class Riot {
     protected opts: any;
 
     public static register();
-    public static mount(tagName: string, args: Object);
+    public static mount(tagName: string, args?: Object);
     public on(eventName: string, cb: Function);
     public update(opts?: any);
     public unmount();
